@@ -753,6 +753,10 @@
           <svg viewBox="0 0 40 40"><polygon points="20,7 33,17 28,33 12,33 7,17" fill="rgba(42,166,214,.3)" stroke="#1f6fb2" stroke-width="3" stroke-linejoin="round"/></svg>
           多邊形
         </button>
+        <button class="tbtn" id="t-poly2" title="多邊形（橘）">
+          <svg viewBox="0 0 40 40"><polygon points="20,7 33,17 28,33 12,33 7,17" fill="rgba(255,140,66,.32)" stroke="#ff8c42" stroke-width="3" stroke-linejoin="round"/></svg>
+          多邊形・橘
+        </button>
         <button class="tbtn" id="t-undo" title="上一步">
           <svg viewBox="0 0 40 40"><path d="M14 14 H26 a8 8 0 0 1 0 16 H12" fill="none" stroke="#ff8c42" stroke-width="3.5" stroke-linecap="round"/><polyline points="18,8 11,14 18,20" fill="none" stroke="#ff8c42" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           上一步
@@ -889,7 +893,7 @@
 
   function setTool(t){
     tool=t;
-    ['line','sameline','circle','same','poly'].forEach(k=>
+    ['line','sameline','circle','same','poly','poly2'].forEach(k=>
       document.getElementById('t-'+k).classList.toggle('on',t===k));
     pending=null; polyPts=[];
     hint.textContent =
@@ -907,6 +911,7 @@
   document.getElementById('t-circle').onclick=()=>setTool('circle');
   document.getElementById('t-same').onclick=()=>setTool('same');
   document.getElementById('t-poly').onclick=()=>setTool('poly');
+  document.getElementById('t-poly2').onclick=()=>setTool('poly2');
   document.getElementById('t-undo').onclick=()=>{
     if(polyPts.length){polyPts.pop();}      // 多邊形進行中：退一個頂點
     else{shapes.pop();}                       // 否則退掉上一個圖形
@@ -958,11 +963,11 @@
   function down(e){
     e.preventDefault();
     const p=snap(pos(e));
-    if(tool==='poly'){
+    if(tool==='poly'||tool==='poly2'){
       if(polyPts.length>=3){            // 點回第一個點 → 閉合
         const f=polyPts[0];
         if(Math.hypot(p.x-f.x,p.y-f.y)<CLOSE_R){
-          shapes.push({type:'poly',pts:polyPts.slice()});
+          shapes.push({type:'poly',pts:polyPts.slice(),color:tool==='poly2'?'orange':'blue'});
           polyPts=[];draw();return;
         }
       }
@@ -1017,11 +1022,16 @@
   function drawShape(s,preview){
     ctx.lineJoin='round';
     if(s.type==='poly'){
+      const orange=s.color==='orange';
       ctx.beginPath();
       s.pts.forEach((q,k)=>k?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));
       ctx.closePath();
-      ctx.fillStyle=POLY_FILL;ctx.fill();
-      ctx.strokeStyle='#1f6fb2';ctx.lineWidth=2;ctx.stroke();
+      ctx.save();
+      ctx.globalCompositeOperation='lighten';         // 疊色：lighten 取較亮色，不會越疊越深
+      ctx.fillStyle=orange?'rgba(255,140,66,.6)':'rgba(42,166,214,.6)';
+      ctx.fill();
+      ctx.restore();
+      ctx.strokeStyle=orange?'#ff8c42':'#1f6fb2';ctx.lineWidth=2;ctx.stroke();
       return;
     }
     ctx.strokeStyle=preview?'#ffc46b':'#1f6fb2';
@@ -1066,7 +1076,7 @@
       ctx.beginPath();
       polyPts.forEach((q,k)=>k?ctx.lineTo(q.x,q.y):ctx.moveTo(q.x,q.y));
       if(mouse)ctx.lineTo(mouse.x,mouse.y);
-      ctx.strokeStyle='#2aa6d6';ctx.lineWidth=1.5;ctx.setLineDash([10,8]);ctx.stroke();
+      ctx.strokeStyle=tool==='poly2'?'#ff8c42':'#2aa6d6';ctx.lineWidth=1.5;ctx.setLineDash([10,8]);ctx.stroke();
       ctx.setLineDash([]);
     }
     endpoints().forEach(p=>dot(p,false));
