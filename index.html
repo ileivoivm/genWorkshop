@@ -826,26 +826,61 @@
   </section>
 
   <!-- 17 -->
-  <section class="slide">
-    <h2>六角星，這樣畫！</h2>
-    <div class="steps">
+  <section class="slide" style="padding-top:16px;padding-bottom:78px;">
+    <span class="badge" style="margin-bottom:6px;">尺規作圖</span>
+    <h2 style="font-size:clamp(22px,3vw,36px);margin-bottom:8px;">用圓規和直尺，畫出六角星</h2>
+    <div class="steps steps6">
       <div class="step"><div class="n">1</div>
-        <svg viewBox="0 0 100 100"><circle class="c" cx="50" cy="50" r="40"/><circle class="dot" cx="50" cy="50" r="3"/></svg>
-        <p>畫一個圓</p></div>
-      <div class="step"><div class="n">2</div>
-        <svg viewBox="0 0 100 100"><circle class="c2" cx="50" cy="50" r="40"/>
-          <circle class="dot" cx="50" cy="10" r="4"/><circle class="dot" cx="85" cy="30" r="4"/><circle class="dot" cx="85" cy="70" r="4"/><circle class="dot" cx="50" cy="90" r="4"/><circle class="dot" cx="15" cy="70" r="4"/><circle class="dot" cx="15" cy="30" r="4"/>
+        <svg viewBox="0 0 100 100">
+          <circle class="c" cx="50" cy="50" r="40"/>
+          <circle class="dot" cx="50" cy="50" r="3"/>
+          <text x="54" y="48" class="lbl">O</text>
         </svg>
-        <p>圓周分成 6 點</p></div>
+        <p>畫一個圓，<br>圓心 <b>O</b></p></div>
+
+      <div class="step"><div class="n">2</div>
+        <svg viewBox="0 0 100 100">
+          <circle class="c2" cx="50" cy="50" r="40"/>
+          <circle class="dot2" cx="50" cy="10" r="4.5"/>
+          <text x="54" y="14" class="lbl">A</text>
+        </svg>
+        <p>在圓周上<br>點一個起點 <b>A</b></p></div>
+
       <div class="step"><div class="n">3</div>
-        <svg viewBox="0 0 100 100"><circle class="c2" cx="50" cy="50" r="40"/>
+        <svg viewBox="0 0 100 100">
+          <circle class="c2" cx="50" cy="50" r="40"/>
+          <path class="arc" d="M15,30 A40,40 0 0 0 85,30"/>
+          <circle class="dot" cx="50" cy="10" r="4"/><text x="44" y="14" class="lbl">A</text>
+          <circle class="dot2" cx="15" cy="30" r="4.5"/>
+          <circle class="dot2" cx="85" cy="30" r="4.5"/>
+        </svg>
+        <p>圓規<b>不要改寬度</b>（＝半徑），<br>從 <b>A</b> 畫弧，交圓於 2 點</p></div>
+
+      <div class="step"><div class="n">4</div>
+        <svg viewBox="0 0 100 100">
+          <circle class="c2" cx="50" cy="50" r="40"/>
+          <circle class="dot" cx="50" cy="10" r="3.5"/>
+          <circle class="dot" cx="85" cy="30" r="3.5"/>
+          <circle class="dot" cx="85" cy="70" r="3.5"/>
+          <circle class="dot" cx="50" cy="90" r="3.5"/>
+          <circle class="dot" cx="15" cy="70" r="3.5"/>
+          <circle class="dot" cx="15" cy="30" r="3.5"/>
+        </svg>
+        <p>用同半徑一直截，<br>繞一圈剛好<b>6 個點</b>！</p></div>
+
+      <div class="step"><div class="n">5</div>
+        <svg viewBox="0 0 100 100">
+          <circle class="c2" cx="50" cy="50" r="40"/>
           <polygon class="tri" points="50,10 85,70 15,70"/>
           <polygon class="tri" points="50,90 85,30 15,30"/>
         </svg>
-        <p>隔一點連線，<br>變兩個三角形</p></div>
-      <div class="step"><div class="n">4</div>
-        <svg viewBox="0 0 100 100"><polygon class="starf" points="50,8 62,32 88,30 70,50 88,70 62,68 50,92 38,68 12,70 30,50 12,30 38,32"/></svg>
-        <p>疊起來，<br>六角星完成！</p></div>
+        <p>隔一個點連線，<br>畫出兩個三角形</p></div>
+
+      <div class="step"><div class="n">6</div>
+        <svg viewBox="0 0 100 100">
+          <polygon class="starf" points="50,8 62,32 88,30 70,50 88,70 62,68 50,92 38,68 12,70 30,50 12,30 38,32"/>
+        </svg>
+        <p>疊起來，<br>六角星完成！ ✡</p></div>
     </div>
   </section>
 
@@ -1027,6 +1062,17 @@
     <p style="margin-top:28px;color:#5a6b88;">謝謝大家！ 🕌✨</p>
   </section>
 
+</div>
+
+<!-- 彈出：p5.js 隨機小作品 -->
+<div class="pop-overlay" id="art-pop" onclick="if(event.target===this)closeArt()">
+  <div class="pop-card" style="text-align:center;">
+    <button class="pop-close" onclick="closeArt()">×</button>
+    <h3 id="art-title">小作品</h3>
+    <div id="art-holder"></div>
+    <p id="art-rule" style="font-size:clamp(14px,1.7vw,18px);color:#5a6b88;margin:12px 0 4px;"></p>
+    <button class="play-btn" style="margin-top:4px;padding:10px 22px;" onclick="redrawArt()">🎲 再畫一次</button>
+  </div>
 </div>
 
 <div class="nav">
