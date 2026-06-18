@@ -1155,7 +1155,22 @@
     }
   };
   let artP5=null;
+  function ensureArtPop(){            // 彈窗若不存在就動態建立（防止被誤刪）
+    if(document.getElementById('art-pop')) return;
+    const d=document.createElement('div');
+    d.className='pop-overlay'; d.id='art-pop';
+    d.addEventListener('click',e=>{ if(e.target===d) window.closeArt(); });
+    d.innerHTML='<div class="pop-card" style="text-align:center;">'+
+      '<button class="pop-close" onclick="closeArt()">×</button>'+
+      '<h3 id="art-title">小作品</h3>'+
+      '<div id="art-holder"></div>'+
+      '<p id="art-rule" style="font-size:clamp(14px,1.7vw,18px);color:#5a6b88;margin:12px 0 4px;"></p>'+
+      '<button class="play-btn" style="margin-top:4px;padding:10px 22px;" onclick="redrawArt()">🎲 再畫一次</button>'+
+      '</div>';
+    document.body.appendChild(d);
+  }
   window.openArt=kind=>{
+    ensureArtPop();
     document.getElementById('art-title').textContent=artMeta[kind].title;
     document.getElementById('art-rule').textContent=artMeta[kind].rule;
     document.getElementById('art-pop').classList.add('show');
