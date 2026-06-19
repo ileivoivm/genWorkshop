@@ -433,41 +433,43 @@
   </section>
 
   <!-- 10 -->
-  <section class="slide center">
-    <span class="badge">影片 · 故事①</span>
-    <h2 style="text-align:center;margin-bottom:14px;">一起看一段小影片 🎬</h2>
-    <div class="video-box">
-      <iframe src="https://www.youtube-nocookie.com/embed/ZlPubPnLKNA" title="六角星的故事"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <!-- 11 -->
   <section class="slide">
     <span class="badge">故事 ②</span>
-    <h2>大衛之星與以色列國旗</h2>
-    <div class="row">
-      <div class="col">
+    <h2>大衛之星與以色列國旗　<button class="more-btn" onclick="document.getElementById('starhist-pop').classList.add('show')">📜 更多故事</button></h2>
+    <div class="illus-split">
+      <div class="txt">
         <p>同樣是這個<span class="accent">六角星</span>，在猶太文化裡叫做<span class="accent2">「大衛之星」</span>。</p>
         <p>它出現在<span class="accent3">以色列</span>的國旗正中間——藍白條紋，加上中央的六角星。</p>
         <div class="note">同一個圖形，在不同文化裡有<br>不一樣的<b>名字</b>和<b>意義</b>，是不是很有趣？</div>
       </div>
-      <div class="col center">
-        <div class="flag">
-          <div class="stripe"></div>
-          <div class="mid">
-            <svg viewBox="0 0 100 100" style="width:90px">
-              <polygon points="50,18 65,44 92,44 70,60 78,86 50,70 22,86 30,60 8,44 35,44" fill="none" stroke="#0038b8" stroke-width="6" stroke-linejoin="round"/>
+      <div class="pic"><img src="以色列.png" alt="以色列國旗上的大衛之星" loading="lazy"></div>
+    </div>
+
+    <!-- 彈出：六角星的更多故事 -->
+    <div class="pop-overlay" id="starhist-pop" onclick="if(event.target===this)this.classList.remove('show')">
+      <div class="pop-card">
+        <button class="pop-close" onclick="document.getElementById('starhist-pop').classList.remove('show')">×</button>
+        <h3>🔭 六角，到處都是！（自然・宇宙・其他文化）</h3>
+        <div class="pop-grid">
+          <div class="pop-text">
+            <p><b>雪花都是六角！ ❄️</b><br>大自然最愛六角：每一片雪花都有<span class="accent2">六個角</span>，因為水結冰時，分子剛好排成六角形。</p>
+            <p><b>土星的六邊形風暴 🪐</b><br>土星的北極有一個超級巨大的<span class="accent">六邊形</span>雲層風暴，比整個地球還要大！太空裡也藏著六角。</p>
+            <p><b>鍊金術的祕號 🔥💧</b><br>古代鍊金術士用六角星代表「火 △ 和水 ▽ 結合」，也象徵把世界的四種元素（火、水、風、土）合在一起。</p>
+            <p><b>印度的結合之星 🕉️</b><br>印度把六角星叫 <b>Shatkona</b>：上三角是一種力量、下三角是另一種力量，合起來代表<span class="accent3">「結合與平衡」</span>。</p>
+          </div>
+          <div class="pop-map" style="display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 200 200" style="width:100%;max-width:200px">
+              <circle class="c2" cx="100" cy="100" r="82"/>
+              <polygon class="tri" points="100,22 168,140 32,140"/>
+              <polygon class="tri" points="100,178 168,60 32,60"/>
             </svg>
           </div>
-          <div class="stripe"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 12 -->
+  <!-- 11 -->
   <section class="slide">
     <span class="badge">故事 ③</span>
     <h2>五芒星的傳說</h2>
@@ -484,7 +486,7 @@
     </div>
   </section>
 
-  <!-- 13 -->
+  <!-- 12 -->
   <section class="slide">
     <span class="badge">更多星星</span>
     <h2>還有更多星星造型！</h2>
@@ -505,7 +507,7 @@
     </div>
   </section>
 
-  <!-- 14 -->
+  <!-- 13 -->
   <section class="slide center">
     <span class="badge">大發現</span>
     <h2 style="text-align:center;">這些星星，藏著一個祕密……</h2>
@@ -519,7 +521,7 @@
     <p style="margin-top:16px;color:#5a6b88;">準備好圓規，我們開始動手吧！ ✏️</p>
   </section>
 
-  <!-- 15 -->
+  <!-- 14 -->
   <section class="slide">
     <span class="badge">準備工具</span>
     <h2>從一個圓開始</h2>
@@ -537,7 +539,7 @@
     </div>
   </section>
 
-  <!-- 16 -->
+  <!-- 15 -->
   <section class="slide" style="padding-top:16px;padding-bottom:78px;">
     <span class="badge" style="margin-bottom:6px;">尺規作圖</span>
     <h2 style="font-size:clamp(22px,3vw,36px);margin-bottom:8px;">用圓規和直尺，畫出五芒星</h2>
@@ -604,7 +606,7 @@
     </div>
   </section>
 
-  <!-- 17 -->
+  <!-- 16 -->
   <section class="slide" style="background:url('generated-illustrations/flower-life-team.png') center/cover no-repeat;justify-content:center;align-items:flex-start;">
     <div class="hero-panel">
       <span class="badge"></span>
@@ -615,7 +617,7 @@
     </div>
   </section>
 
-  <!-- 18 -->
+  <!-- 17 -->
   <section class="slide" style="padding-top:16px;padding-bottom:78px;">
     <span class="badge" style="margin-bottom:6px;">尺規作圖</span>
     <h2 style="font-size:clamp(22px,3vw,36px);margin-bottom:8px;">用圓規和直尺，畫出六角星</h2>
@@ -674,7 +676,7 @@
     </div>
   </section>
 
-  <!-- 19 -->
+  <!-- 18 -->
   <section class="slide">
     <span class="badge">比一比</span>
     <h2>六角星 vs 五芒星</h2>
@@ -686,7 +688,7 @@
     </table>
   </section>
 
-  <!-- 20 -->
+  <!-- 19 -->
   <section class="slide" style="background:url('generated-illustrations/geometric-tile.png') center/cover no-repeat;justify-content:center;align-items:flex-end;">
     <div class="hero-panel">
       <span class="badge">變身魔法</span>
@@ -697,7 +699,7 @@
     </div>
   </section>
 
-  <!-- 21 -->
+  <!-- 20 -->
   <section class="slide">
     <span class="badge">規則的魔法</span>
     <h2>先訂規則，再讓作品自己長出來</h2>
@@ -724,7 +726,7 @@
     </div>
   </section>
 
-  <!-- 22 -->
+  <!-- 21 -->
   <section class="slide" style="position:relative;padding-top:14px;padding-bottom:74px;">
     <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:8px;">
       <span class="badge" style="margin:0;">小小作圖板</span>
@@ -772,7 +774,7 @@
     </div>
   </section>
 
-  <!-- 23 -->
+  <!-- 22 -->
   <section class="slide center">
     <span class="badge">小遊戲</span>
     <h2 style="text-align:center;margin-bottom:14px;">🎲 指令卡產生器</h2>
@@ -786,7 +788,7 @@
     <p style="font-size:16px;color:#5a6b88;text-align:center;margin-top:12px;">老師唸出指令，全班一起照著畫～畫完互相看看，每個人都不一樣！<br><span style="font-size:14px;">工具：鉛筆 ✏️ ＋ 圓規 ⭕（戶外用粉筆、棉線當圓和線、紙膠帶當直線）</span></p>
   </section>
 
-  <!-- 24 -->
+  <!-- 23 -->
   <section class="slide" style="background:url('generated-illustrations/rule-exchange.png') center/cover no-repeat;justify-content:flex-end;align-items:flex-start;">
     <div class="hero-panel">
       <span class="badge">換你了！地板創作</span>
@@ -801,7 +803,7 @@
     </div>
   </section>
 
-  <!-- 25 -->
+  <!-- 24 -->
   <section class="slide">
     <span class="badge">一起玩</span>
     <h2>交換規則，發現新世界 🔁</h2>
@@ -821,7 +823,7 @@
     </div>
   </section>
 
-  <!-- 26 -->
+  <!-- 25 -->
   <section class="slide" style="background:url('generated-illustrations/final-art-muse.png') center/cover no-repeat;justify-content:flex-end;align-items:center;">
     <div class="hero-panel" style="text-align:center;max-width:min(86vw,760px);margin-bottom:6px;">
       <h1 style="font-size:clamp(28px,4.2vw,52px);">數學不只是算數，<br>也可以<span class="accent">很美</span>！</h1>
